@@ -4,4 +4,4 @@ RUN mkdir -p /app/server
 
 WORKDIR /app/server
 
-CMD chmod +x gradlew && ./gradlew bootRun --args='--spring.profiles.active=prod'
+CMD chmod 777 gradlew && ./gradlew bootRun --args='--spring.profiles.active=prod'
