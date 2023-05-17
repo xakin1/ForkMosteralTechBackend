@@ -4,7 +4,6 @@ import es.model.domain.State;
 import es.model.service.FurnitureService;
 import es.model.service.dto.FurnitureDTO;
 import es.model.service.dto.FurnitureFullDTO;
-import es.model.service.dto.HouseDTO;
 import es.model.service.exceptions.NotFoundException;
 import es.model.service.exceptions.OperationNotAllowedException;
 import es.web.rest.custom.ValidationErrorUtils;
@@ -56,16 +55,20 @@ public class FurnitureResource {
         PaginationUtil.generatePaginationHttpHeaders(page, FURNITURE_RESOURCE_URL);
     return new ResponseEntity<>(page, headers, HttpStatus.OK);
   }
-  
+
   @GetMapping("all/favourites/{userId}")
   public ResponseEntity<Page<FurnitureDTO>> getProductsWithFavourites(
-		  @PathVariable String userId,
+      @PathVariable String userId,
       @PageableDefault(page = 0, size = 100000, sort = "id") Pageable pageable,
       @RequestParam(value = "minPrice", required = false) Double minPrice,
       @RequestParam(value = "maxPrice", required = false) Double maxPrice,
-      @RequestParam(value = "state", required = false) State state) throws NotFoundException {
-    Page<FurnitureDTO> page = furnitureService.getAllFurnituresWithFavourites(userId, pageable, minPrice, maxPrice, state);
-    HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, FURNITURE_RESOURCE_URL);
+      @RequestParam(value = "state", required = false) State state)
+      throws NotFoundException {
+    Page<FurnitureDTO> page =
+        furnitureService.getAllFurnituresWithFavourites(
+            userId, pageable, minPrice, maxPrice, state);
+    HttpHeaders headers =
+        PaginationUtil.generatePaginationHttpHeaders(page, FURNITURE_RESOURCE_URL);
     return new ResponseEntity<>(page, headers, HttpStatus.OK);
   }
 

@@ -1,8 +1,7 @@
 package es.model.service.dto;
 
-import java.time.LocalDate;
-
 import es.model.domain.AppUser;
+import java.time.LocalDate;
 
 public class UserFullDTO {
   private String id;

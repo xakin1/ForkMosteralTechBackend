@@ -8,7 +8,7 @@ plugins {
 apply plugin: "io.spring.dependency-management"
 apply plugin: "application"
 apply plugin: "eclipse"
-mainClassName = "es.udc.lbd.gema.lps.Application"
+mainClassName = "es.Application"
 
 group = "es.udc.lbd.gema"
 version = "0.1.0"

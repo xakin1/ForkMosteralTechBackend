@@ -18,8 +18,9 @@ public interface ProductService {
   ProductFullDTO get(Long id) throws NotFoundException;
 
   Page<ProductFullDTO> getByUserId(String userId, int page, int size) throws NotFoundException;
-  
-  Page<ProductDTO> getProductsWithFavourites (String userId, Pageable pageable) throws NotFoundException;
+
+  Page<ProductDTO> getProductsWithFavourites(String userId, Pageable pageable)
+      throws NotFoundException;
 
   ProductFullDTO create(ProductFullDTO product) throws OperationNotAllowedException;
 

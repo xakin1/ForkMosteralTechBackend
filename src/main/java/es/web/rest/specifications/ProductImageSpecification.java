@@ -31,11 +31,12 @@ public class ProductImageSpecification {
             criteriaBuilder.like(
                 criteriaBuilder.lower(path.get("size").as(Long.class)), stringToFind));
         predicates.add(
-                criteriaBuilder.like(
-                    criteriaBuilder.lower(path.get("content").as(byte.class)), stringToFind));
+            criteriaBuilder.like(
+                criteriaBuilder.lower(path.get("content").as(byte.class)), stringToFind));
         predicates.add(
             criteriaBuilder.like(
-                criteriaBuilder.lower(root.join("product", JoinType.LEFT).get("id").as(String.class)),
+                criteriaBuilder.lower(
+                    root.join("product", JoinType.LEFT).get("id").as(String.class)),
                 stringToFind));
         return criteriaBuilder.or(predicates.toArray(new Predicate[0]));
       }

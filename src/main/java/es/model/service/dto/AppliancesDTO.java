@@ -13,14 +13,13 @@ public class AppliancesDTO {
   private UserDTO owner;
   private Double price;
   private boolean isFavourite;
-private ProductOwner productOwner;
+  private ProductOwner productOwner;
 
   public AppliancesDTO() {}
-  
+
   public AppliancesDTO(AppliancesProjection product) {
     this(product.getAppliances());
     this.isFavourite = product.getIsFavourite();
-
   }
 
   public AppliancesDTO(Appliances appliances) {
@@ -28,68 +27,71 @@ private ProductOwner productOwner;
     this.name = appliances.getName();
     this.description = appliances.getDescription();
     this.state = appliances.getState();
-	this.price = appliances.getPrice();
-	this.productOwner = new ProductOwner(appliances.getOwner().getId(), appliances.getOwner().getName(),appliances.getOwner().getSurname());
+    this.price = appliances.getPrice();
+    this.productOwner =
+        new ProductOwner(
+            appliances.getOwner().getId(),
+            appliances.getOwner().getName(),
+            appliances.getOwner().getSurname());
+  }
 
-}
+  public Long getId() {
+    return id;
+  }
 
-public Long getId() {
-	return id;
-}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-public void setId(Long id) {
-	this.id = id;
-}
+  public String getName() {
+    return name;
+  }
 
-public String getName() {
-	return name;
-}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-public void setName(String name) {
-	this.name = name;
-}
+  public String getDescription() {
+    return description;
+  }
 
-public String getDescription() {
-	return description;
-}
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-public void setDescription(String description) {
-	this.description = description;
-}
+  public State getState() {
+    return state;
+  }
 
-public State getState() {
-	return state;
-}
+  public void setState(State state) {
+    this.state = state;
+  }
 
-public void setState(State state) {
-	this.state = state;
-}
+  public UserDTO getOwner() {
+    return owner;
+  }
 
-public UserDTO getOwner() {
-	return owner;
-}
+  public void setOwner(UserDTO owner) {
+    this.owner = owner;
+  }
 
-public void setOwner(UserDTO owner) {
-	this.owner = owner;
-}
+  public Double getPrice() {
+    return price;
+  }
 
-public Double getPrice() {
-	return price;
-}
+  public void setPrice(Double price) {
+    this.price = price;
+  }
 
-public void setPrice(Double price) {
-	this.price = price;
-}
+  public boolean isFavourite() {
+    return isFavourite;
+  }
 
-public boolean isFavourite() {
-	return isFavourite;
-}
+  public void setIsFavourite(boolean isFavourite) {
+    this.isFavourite = isFavourite;
+  }
 
-public void setIsFavourite(boolean isFavourite) {
-	this.isFavourite = isFavourite;
-}
-
-public Appliances toAppliances() {
+  public Appliances toAppliances() {
     Appliances appliances = new Appliances();
     appliances.setId(this.getId());
     appliances.setName(this.getName());
@@ -99,11 +101,11 @@ public Appliances toAppliances() {
     return appliances;
   }
 
-public ProductOwner getProductOwner() {
-	return productOwner;
-}
+  public ProductOwner getProductOwner() {
+    return productOwner;
+  }
 
-public void setProductOwner(ProductOwner productOwner) {
-	this.productOwner = productOwner;
-}
+  public void setProductOwner(ProductOwner productOwner) {
+    this.productOwner = productOwner;
+  }
 }

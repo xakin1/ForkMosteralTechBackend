@@ -6,15 +6,15 @@ import javax.persistence.*;
 @Table(name = "t_house")
 @PrimaryKeyJoinColumn(name = "id")
 public class House extends Product {
-	
-	@Column(name = "m2")
-	private int m2;
 
-	public int getM2() {
-		return m2;
-	}
+  @Column(name = "m2")
+  private int m2;
 
-	public void setM2(int m2) {
-		this.m2 = m2;
-	}
+  public int getM2() {
+    return m2;
+  }
+
+  public void setM2(int m2) {
+    this.m2 = m2;
+  }
 }

@@ -84,9 +84,7 @@ public class ProductImage {
     this.product = product;
   }
 
-public void setProduct(Product product) {
-	this.product = product;
-}
-  
-  
+  public void setProduct(Product product) {
+    this.product = product;
+  }
 }

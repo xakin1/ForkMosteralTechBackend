@@ -9,16 +9,14 @@ import javax.persistence.Table;
 @Table(name = "t_car")
 @PrimaryKeyJoinColumn(name = "id")
 public class Car extends Product {
-	@Column(name = "km")
-	private int km;
+  @Column(name = "km")
+  private int km;
 
-	public int getKm() {
-		return km;
-	}
+  public int getKm() {
+    return km;
+  }
 
-	public void setKm(int km) {
-		this.km = km;
-	}
-	
-	
+  public void setKm(int km) {
+    this.km = km;
+  }
 }

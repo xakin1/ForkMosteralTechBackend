@@ -1,40 +1,39 @@
 package es.model.service.dto;
 
 public class ProductOwner {
-	private String id;
-	private String name;
-	private String surname;
-	
-    public ProductOwner() {
-    }
+  private String id;
+  private String name;
+  private String surname;
 
-	public ProductOwner(String id, String name, String surname) {
-		super();
-		this.setId(id);
-		this.setName(name);
-	}
+  public ProductOwner() {}
 
-	public String getName() {
-		return name;
-	}
+  public ProductOwner(String id, String name, String surname) {
+    super();
+    this.setId(id);
+    this.setName(name);
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public String getId() {
-		return id;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  public String getId() {
+    return id;
+  }
 
-	public String getSurname() {
-		return surname;
-	}
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
+  public String getSurname() {
+    return surname;
+  }
+
+  public void setSurname(String surname) {
+    this.surname = surname;
+  }
 }

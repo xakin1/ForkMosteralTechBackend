@@ -2,7 +2,6 @@ package es.model.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +29,7 @@ public class Product {
 
   @Column(name = "name")
   private String name;
-    
+
   @Column(name = "price")
   private Double price;
 

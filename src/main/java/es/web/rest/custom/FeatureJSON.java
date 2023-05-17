@@ -1,6 +1,5 @@
 package es.web.rest.custom;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.lang.reflect.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +29,6 @@ public class FeatureJSON {
       try {
         if (!isEntity(field)) {
           Object result = FieldUtils.readField(object, field.getName(), true);
-
         }
       } catch (LazyInitializationException lazyException) {
         continue;

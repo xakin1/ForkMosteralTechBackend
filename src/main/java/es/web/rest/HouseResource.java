@@ -1,12 +1,19 @@
 package es.web.rest;
 
+import es.model.domain.State;
+import es.model.service.HouseService;
+import es.model.service.dto.HouseDTO;
+import es.model.service.dto.HouseFullDTO;
+import es.model.service.exceptions.NotFoundException;
+import es.model.service.exceptions.OperationNotAllowedException;
+import es.web.rest.custom.ValidationErrorUtils;
+import es.web.rest.util.HeaderUtil;
+import es.web.rest.util.PaginationUtil;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
-
 import javax.inject.Inject;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -25,16 +32,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import es.model.domain.State;
-import es.model.service.HouseService;
-import es.model.service.dto.HouseDTO;
-import es.model.service.dto.HouseFullDTO;
-import es.model.service.exceptions.NotFoundException;
-import es.model.service.exceptions.OperationNotAllowedException;
-import es.web.rest.custom.ValidationErrorUtils;
-import es.web.rest.util.HeaderUtil;
-import es.web.rest.util.PaginationUtil;
 
 @RestController
 @RequestMapping(HouseResource.HOUSE_RESOURCE_URL)
@@ -64,17 +61,20 @@ public class HouseResource {
     HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, HOUSE_RESOURCE_URL);
     return new ResponseEntity<>(page, headers, HttpStatus.OK);
   }
-  
+
   @GetMapping("all/favourites/{userId}")
   public ResponseEntity<Page<HouseDTO>> getProductsWithFavourites(
-		  @PathVariable String userId,
+      @PathVariable String userId,
       @PageableDefault(page = 0, size = 100000, sort = "id") Pageable pageable,
       @RequestParam(value = "minPrice", required = false) Double minPrice,
       @RequestParam(value = "maxPrice", required = false) Double maxPrice,
       @RequestParam(value = "minKm", required = false) Integer minm2,
       @RequestParam(value = "maxKm", required = false) Integer maxm2,
-      @RequestParam(value = "state", required = false) State state) throws NotFoundException {
-    Page<HouseDTO> page = houseService.getAllHousesWithFavourites(userId, pageable, minPrice, maxPrice, minm2, maxm2,state);
+      @RequestParam(value = "state", required = false) State state)
+      throws NotFoundException {
+    Page<HouseDTO> page =
+        houseService.getAllHousesWithFavourites(
+            userId, pageable, minPrice, maxPrice, minm2, maxm2, state);
     HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, HOUSE_RESOURCE_URL);
     return new ResponseEntity<>(page, headers, HttpStatus.OK);
   }
