@@ -8,5 +8,5 @@ COPY . /app/server
 RUN chmod +x gradlew
 RUN ./gradlew build
 
-CMD ./gradlew bootRun --args='--spring.profiles.active=prod'
+CMD ./gradlew --no-daemon bootRun --args='--spring.profiles.active=prod'
 
