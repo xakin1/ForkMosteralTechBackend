@@ -10,7 +10,7 @@ apply plugin: "application"
 apply plugin: "eclipse"
 mainClassName = "es.Application"
 
-group = "es.udc.lbd.gema"
+group = "es"
 version = "0.1.0"
 sourceCompatibility = "1.8"
 

@@ -1,4 +1,4 @@
-package es.udc.lbd.gema.lps;
+package es;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
