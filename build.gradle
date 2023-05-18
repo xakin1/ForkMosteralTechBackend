@@ -68,9 +68,9 @@ dependencies {
 
 spotless {
     java {
-        googleJavaFormat('1.9') {
+        googleJavaFormat('1.7') {
             aosp = false
-            version('1.9')
+            version('1.7')
         }
     }
 }
