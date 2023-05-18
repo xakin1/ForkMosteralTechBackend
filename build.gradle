@@ -15,7 +15,9 @@ version = "0.1.0"
 sourceCompatibility = "1.8"
 
 repositories {
-  mavenCentral()
+  mavenCentral().content {
+        excludeModule("javax.media", "jai_core")
+    }
 
   maven { url "https://repo.osgeo.org/repository/release/"
     allowInsecureProtocol = true
