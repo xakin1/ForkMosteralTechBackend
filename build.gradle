@@ -68,8 +68,7 @@ dependencies {
 
 spotless {
     java {
-        googleJavaFormat('1.9') {
-        }
+        googleJavaFormat('1.9')
     }
 }
 
