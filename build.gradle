@@ -66,12 +66,6 @@ dependencies {
   testImplementation "org.springframework.security:spring-security-test"
 }
 
-spotless {
-    java {
-        googleJavaFormat('1.15')
-    }
-}
-
 bootRun {
   if (project.hasProperty('args')) {
     args project.args.split(',')
