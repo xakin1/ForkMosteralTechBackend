@@ -3,7 +3,7 @@ plugins {
   id "com.diffplug.spotless" version "6.6.1"
   id "java"
   id "com.github.ManifestClasspath" version "0.1.0-RELEASE"
-  id 'com.diffplug.gradle.spotless' version '5.14.2'
+  id 'com.diffplug.spotless' version '5.14.2'
 }
 
 apply plugin: "io.spring.dependency-management"
