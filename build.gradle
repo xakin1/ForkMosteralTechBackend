@@ -18,16 +18,33 @@ repositories {
   mavenCentral().content {
         excludeModule("javax.media", "jai_core")
     }
-  jcenter()
 
   maven { url "http://repo.osgeo.org/repository/release/"
     allowInsecureProtocol = true
+    snapshots {
+            enabled = false
+        }
+    releases {
+            enabled = true
+        }
   }
   maven { url "http://maven.geotoolkit.org/"
     allowInsecureProtocol = true
+    snapshots {
+            enabled = false
+        }
+    releases {
+            enabled = true
+        }
   }
   maven { url "http://jasperreports.sourceforge.net/maven2/"
     allowInsecureProtocol = true
+    snapshots {
+            enabled = false
+        }
+    releases {
+            enabled = true
+        }
   }
   
   
