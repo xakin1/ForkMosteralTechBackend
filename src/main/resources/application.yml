@@ -17,4 +17,5 @@ server:
   temporaryUploads: temporary
   #Default internal page size (Used for some high database usage methods)
   pageSize: 3
+  address: 0.0.0.0
   port: 80
