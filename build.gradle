@@ -20,7 +20,7 @@ repositories {
     }
   jcenter()
 
-  maven { url "https://repo.osgeo.org/repository/release/"
+  maven { url "http://repo.osgeo.org/repository/release/"
     allowInsecureProtocol = true
   }
   maven { url "http://maven.geotoolkit.org/"
