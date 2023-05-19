@@ -21,30 +21,15 @@ repositories {
 
   maven { url "http://repo.osgeo.org/repository/release/"
     allowInsecureProtocol = true
-    snapshots {
-            enabled = false
-        }
-    releases {
-            enabled = true
-        }
+    
   }
   maven { url "http://maven.geotoolkit.org/"
     allowInsecureProtocol = true
-    snapshots {
-            enabled = false
-        }
-    releases {
-            enabled = true
-        }
+   
   }
   maven { url "http://jasperreports.sourceforge.net/maven2/"
     allowInsecureProtocol = true
-    snapshots {
-            enabled = false
-        }
-    releases {
-            enabled = true
-        }
+    
   }
   
   
@@ -69,9 +54,7 @@ dependencies {
   implementation "org.thymeleaf:thymeleaf"
   implementation "org.thymeleaf:thymeleaf-spring5"
   implementation "org.hibernate:hibernate-spatial:5.6.9.Final"
-  implementation "org.geotools:gt-geojson:26.4"
-  implementation "org.geotools:gt-shapefile:26.4"
-  implementation "org.geotools:gt-epsg-hsql:26.4"
+
 
   implementation "javax.inject:javax.inject:1"
   implementation "com.fasterxml.jackson.core:jackson-databind"
