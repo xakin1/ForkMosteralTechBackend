@@ -18,6 +18,7 @@ repositories {
   mavenCentral().content {
         excludeModule("javax.media", "jai_core")
     }
+  jcenter()
 
   maven { url "https://repo.osgeo.org/repository/release/"
     allowInsecureProtocol = true
@@ -29,7 +30,7 @@ repositories {
     allowInsecureProtocol = true
   }
   
-  jcenter()
+  
 }
 
 dependencies {
