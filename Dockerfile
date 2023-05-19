@@ -9,4 +9,4 @@ RUN chmod +x gradlew
 ENV GRADLE_OPTS="-Xmx2g"
 RUN ./gradlew build
 
-CMD ./gradlew bootRun --args='--spring.profiles.active=prod'
+CMD ./gradlew bootRun
