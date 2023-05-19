@@ -11,3 +11,11 @@ logging:
     root: INFO
     es: DEBUG
     es.model.util.EnumConverter: ERROR
+    
+server:
+  uploads: upload
+  temporaryUploads: temporary
+  #Default internal page size (Used for some high database usage methods)
+  pageSize: 3
+  port: 8080
+  host: 0.0.0.0
