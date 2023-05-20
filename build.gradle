@@ -71,7 +71,7 @@ dependencies {
 
 jar {
   manifest {
-    attributes 'Main-Class': 'es.Application'
+    attributes 'Main-Class': 'es.monsteraltech.Application'
   }
 }
 
