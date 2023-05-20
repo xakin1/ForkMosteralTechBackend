@@ -5,7 +5,6 @@
     "buildCommand": "./gradlew build"
   },
   "deploy": {
-    "startCommand": "./gradlew  bootRun",
     "numReplicas": 1,
     "restartPolicyType": "NEVER"
   }
