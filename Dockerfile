@@ -1,6 +1,4 @@
-FROM openjdk:17-jdk-slim
-
-EXPOSE 8080
+FROM openjdk:11
 
 RUN mkdir -p /app/server
 WORKDIR /app/server
