@@ -5,28 +5,9 @@ spring:
     database: monsteraltech
     username: udcapmonsteraltech
     password: 9bE74cT3NjoUkErlO7qfRFTyKkwPOsSn
-  # Email server configuration
-  mail:
-    host: 127.0.0.1
-    username: dummy
-    password: dummy
-    port: 25
-    from: no-reply@dummyserver.es
-server:
-  uploads: upload
-  temporaryUploads: temporary
-  #Default internal page size (Used for some high database usage methods)
-  pageSize: 3
-  port: 8080
-initDB:
-  defaultAdminUser: admin
-  defaultAdminPassword: admin
-  defaultAdminEmail: admin@localhost
+
 logging:
   level:
     root: INFO
     es: DEBUG
     es.model.util.EnumConverter: ERROR
-properties:
-  clientHost: http://localhost:1234
-  environment: prod
