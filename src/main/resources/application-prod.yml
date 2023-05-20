@@ -1,13 +1,7 @@
 spring:
   datasource:
-    host: dpg-chif7v1mbg557he48650-a.oregon-postgres.render.com
-    port: 5432
-    database: monsteraltech
+    url: jdbc:postgresql://dpg-chif7v1mbg557he48650-a.oregon-postgres.render.com:5432/monsteraltech
     username: udcapmonsteraltech
     password: 9bE74cT3NjoUkErlO7qfRFTyKkwPOsSn
+    driver-class-name: org.postgresql.Driver
 
-logging:
-  level:
-    root: INFO
-    es: DEBUG
-    es.model.util.EnumConverter: ERROR

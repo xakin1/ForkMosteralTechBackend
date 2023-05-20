@@ -5,11 +5,3 @@ spring:
     password: 9bE74cT3NjoUkErlO7qfRFTyKkwPOsSn
     driver-class-name: org.postgresql.Driver
 
-server:
-  port: 8080
-  host: 0.0.0.0
-
-
-client:
-  host: http://0.0.0.0:8080
-  port: 8080
