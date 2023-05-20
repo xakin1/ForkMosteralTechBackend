@@ -9,7 +9,7 @@ server:
   port: 8080
   host: 0.0.0.0
 
-properties:
-  client:
-    host: https://0.0.0.0:8080
-    port: 8080
+
+client:
+  host: https://0.0.0.0:8080
+  port: 8080
