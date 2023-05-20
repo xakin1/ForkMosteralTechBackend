@@ -1,11 +1,15 @@
-FROM openjdk:11
+FROM ubuntu:latest AS build
 
-RUN mkdir -p /app/server
-WORKDIR /app/server
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk -y
+COPY . .
 
-COPY . /app/server
+RUN ./gradlew bootJar --no-daemon
 
-RUN chmod +x gradlew
-RUN ./gradlew build
+FROM openjdk:17-jdk-slim
 
-CMD ./gradlew bootRun
+EXPOSE 8080
+
+COPY --from=build /build/libs/demo-1.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
