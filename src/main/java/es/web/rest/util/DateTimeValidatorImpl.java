@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-/** Implementation for {@link es.web.rest.util.DateTimeValidator DateTimeValidator} interface */
+/** Implementation for {@link DateTimeValidator DateTimeValidator} interface */
 public class DateTimeValidatorImpl implements DateTimeValidator {
 
   private DateTimeFormatter dateTimeFormatter;

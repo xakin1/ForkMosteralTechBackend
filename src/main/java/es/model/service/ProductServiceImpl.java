@@ -1,5 +1,19 @@
 package es.model.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.inject.Inject;
+
 import es.model.domain.Product;
 import es.model.repository.ProductRepository;
 import es.model.repository.ProductRepository.ProductProjection;
@@ -11,17 +25,6 @@ import es.web.rest.custom.FeatureCollectionJSON;
 import es.web.rest.custom.FeatureJSON;
 import es.web.rest.specifications.ProductSpecification;
 import es.web.rest.util.specification_utils.SpecificationUtil;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Collectors;
-import javax.inject.Inject;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional(readOnly = true, rollbackFor = Exception.class)

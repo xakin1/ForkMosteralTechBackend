@@ -1,20 +1,5 @@
 package es.web.rest;
 
-import es.model.service.UserService;
-import es.model.service.dto.UserDTO;
-import es.model.service.dto.UserFullDTO;
-import es.model.service.exceptions.NotFoundException;
-import es.model.service.exceptions.OperationNotAllowedException;
-import es.web.rest.custom.FeatureCollectionJSON;
-import es.web.rest.custom.ValidationErrorUtils;
-import es.web.rest.util.HeaderUtil;
-import es.web.rest.util.PaginationUtil;
-import es.web.rest.util.specification_utils.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import javax.inject.Inject;
-import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -25,6 +10,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.validation.Valid;
+
+import es.model.service.UserService;
+import es.model.service.dto.UserDTO;
+import es.model.service.dto.UserFullDTO;
+import es.model.service.exceptions.NotFoundException;
+import es.model.service.exceptions.OperationNotAllowedException;
+import es.web.rest.custom.FeatureCollectionJSON;
+import es.web.rest.custom.ValidationErrorUtils;
+import es.web.rest.util.HeaderUtil;
+import es.web.rest.util.PaginationUtil;
 
 @RestController
 @RequestMapping(UserResource.USER_RESOURCE_URL)

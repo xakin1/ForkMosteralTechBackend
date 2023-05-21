@@ -1,36 +1,10 @@
-HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**
-!**/src/test/**
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin
+.idea/libraries/maven_wrapper.xml
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
+.idea/misc.xml
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+.idea/modules.xml
 
-### VS Code ###
-.vscode/
+.idea/pruebaSpringRailway.iml
 
-# Certificates
-/gradle/keys/*.p12
+.idea/vcs.xml

@@ -1,8 +1,9 @@
 package es.model.service.dto;
 
+import java.time.LocalDateTime;
+
 import es.model.domain.State;
 import es.model.domain.Transactions;
-import java.time.LocalDateTime;
 
 public class TransactionsDTO {
 

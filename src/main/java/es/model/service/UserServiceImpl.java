@@ -1,5 +1,16 @@
 package es.model.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.inject.Inject;
+
 import es.model.domain.AppUser;
 import es.model.repository.UserRepository;
 import es.model.service.dto.UserDTO;
@@ -9,15 +20,7 @@ import es.model.service.exceptions.OperationNotAllowedException;
 import es.web.rest.custom.FeatureCollectionJSON;
 import es.web.rest.custom.FeatureJSON;
 import es.web.rest.specifications.UserSpecification;
-import es.web.rest.util.specification_utils.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Collectors;
-import javax.inject.Inject;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import es.web.rest.util.specification_utils.SpecificationUtil;
 
 @Service
 @Transactional(readOnly = true, rollbackFor = Exception.class)

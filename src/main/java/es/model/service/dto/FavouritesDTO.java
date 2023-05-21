@@ -1,7 +1,8 @@
 package es.model.service.dto;
 
-import es.model.domain.*;
 import java.time.LocalDate;
+
+import es.model.domain.Favourites;
 
 public class FavouritesDTO {
 

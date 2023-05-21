@@ -1,13 +1,16 @@
 package es.web.rest.specifications;
 
-import es.model.domain.Product;
-import es.web.rest.util.specification_utils.SpecificationUtil;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.criteria.*;
-import javax.persistence.criteria.Path;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.criteria.*;
+import javax.persistence.criteria.Path;
+
+import es.model.domain.Product;
+import es.web.rest.util.specification_utils.SpecificationUtil;
 
 public class ProductSpecification {
   public static Specification<Product> searchAll(String search) {

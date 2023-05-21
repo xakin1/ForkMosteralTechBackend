@@ -1,9 +1,10 @@
 package es.web.rest.custom;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ValidationErrorUtils {
 

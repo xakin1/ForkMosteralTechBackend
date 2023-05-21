@@ -1,9 +1,10 @@
 package es.model.service.exceptions.account;
 
-import es.model.service.exceptions.AppException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+
+import es.model.service.exceptions.AppException;
 
 public abstract class AccountException extends AppException {
 

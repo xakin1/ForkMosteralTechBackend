@@ -1,7 +1,5 @@
 package es.component.logger;
 
-import es.web.rest.custom.ValidationErrorUtils;
-import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -11,6 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+
+import es.web.rest.custom.ValidationErrorUtils;
 
 /**
  * Endpoint created to receive WARNs and ERRORs from client and log them into the server's logger

@@ -1,6 +1,7 @@
 package es.model.service.dto;
 
-import es.model.domain.*;
+import es.model.domain.Furniture;
+import es.model.domain.Product;
 
 public class FurnitureFullDTO extends ProductFullDTO {
   private Long id;

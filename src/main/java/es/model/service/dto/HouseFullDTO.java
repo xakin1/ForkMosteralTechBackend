@@ -1,6 +1,7 @@
 package es.model.service.dto;
 
-import es.model.domain.*;
+import es.model.domain.House;
+import es.model.domain.Product;
 
 public class HouseFullDTO extends ProductFullDTO {
   private Long id;

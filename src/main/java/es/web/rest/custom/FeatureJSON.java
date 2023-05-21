@@ -1,16 +1,18 @@
 package es.web.rest.custom;
 
-import java.lang.reflect.*;
-import java.util.HashMap;
-import java.util.Map;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.hibernate.LazyInitializationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.lang.reflect.*;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 public class FeatureJSON {
 
