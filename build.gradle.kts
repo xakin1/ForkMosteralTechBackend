@@ -58,10 +58,9 @@ tasks.withType<JavaCompile>() {
 tasks.withType<Javadoc>() {
     options.encoding = "UTF-8"
 }
-jar {
-  manifest {
-    attributes(
-      'Main-Class': 'es.Application'
-    )
-  }
+
+tasks.named<Jar>("bootJar") {
+    manifest {
+        attributes["Main-Class"] = "es.Application"
+    }
 }
