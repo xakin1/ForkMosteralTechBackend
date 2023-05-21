@@ -44,6 +44,7 @@ group = "es"
 version = "0.0.1"
 description = "demo"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
+mainClassName = "es.Application"
 
 publishing {
     publications.create<MavenPublication>("maven") {
