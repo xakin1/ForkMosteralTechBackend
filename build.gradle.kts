@@ -59,7 +59,7 @@ tasks.withType<Javadoc>() {
     options.encoding = "UTF-8"
 }
 
-tasks.named<Jar>("bootJar") {
+tasks.named<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
     manifest {
         attributes["Main-Class"] = "es.Application"
     }
