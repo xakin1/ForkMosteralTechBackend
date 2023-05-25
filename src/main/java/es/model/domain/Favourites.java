@@ -24,11 +24,11 @@ public class Favourites {
   @Column(name = "date")
   private LocalDate date;
 
-  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "product")
   private Product product;
 
-  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "appuser")
   private AppUser appuser;
 
