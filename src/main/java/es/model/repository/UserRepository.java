@@ -15,6 +15,8 @@ public interface UserRepository
 
   Optional<AppUser> findById(String pk);
 
+  void deleteById(String id);
+  
   Optional<AppUser> findByFirebaseToken(String token);
 
   Page<AppUser> findByIdIn(List<Long> pk, Pageable pageable);

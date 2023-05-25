@@ -2,8 +2,16 @@ package es.model.domain;
 
 import java.time.LocalDate;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity(name = "t_favourites")
 @Table(name = "t_favourites")
@@ -16,11 +24,11 @@ public class Favourites {
   @Column(name = "date")
   private LocalDate date;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinColumn(name = "product")
   private Product product;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinColumn(name = "appuser")
   private AppUser appuser;
 

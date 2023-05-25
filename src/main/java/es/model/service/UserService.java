@@ -25,5 +25,5 @@ public interface UserService {
 
   UserFullDTO update(String id, UserFullDTO user) throws OperationNotAllowedException;
 
-  void delete(Long id);
+  void delete(String id);
 }

@@ -93,7 +93,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Transactional(readOnly = false, rollbackFor = Exception.class)
-  public void delete(Long id) {
+  public void delete(String id) {
     userRepository.deleteById(id);
   }
 

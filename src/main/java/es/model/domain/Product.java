@@ -19,6 +19,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity(name = "t_product")
 @Table(name = "t_product")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -47,14 +50,15 @@ public class Product {
   @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<ProductImage> images = new ArrayList<>();
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Transactions> transactions;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinColumn(name = "owner")
+  @OnDelete(action = OnDeleteAction.CASCADE)
   private AppUser owner;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Favourites> favourites;
 
   public Product() {}

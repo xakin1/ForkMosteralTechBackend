@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CascadeType;
+
 @Entity(name = "appuser")
 @Table(name = "appuser")
 public class AppUser {
@@ -35,7 +37,7 @@ public class AppUser {
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
   private List<Product> products;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "appuser")
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "appuser", orphanRemoval = true)
   private List<Favourites> favourites;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "seller")

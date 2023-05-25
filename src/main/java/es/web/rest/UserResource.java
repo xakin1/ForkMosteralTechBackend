@@ -147,7 +147,7 @@ public class UserResource {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> delete(@PathVariable Long id) {
+  public ResponseEntity<Void> delete(@PathVariable String id) {
     try {
       userService.delete(id);
     } catch (Exception e) {
