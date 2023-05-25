@@ -37,7 +37,7 @@ public class AppUser {
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
   private List<Product> products;
 
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "appuser", orphanRemoval = true)
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "appuser")
   private List<Favourites> favourites;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "seller")
