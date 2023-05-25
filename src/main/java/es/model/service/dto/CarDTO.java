@@ -19,7 +19,7 @@ public class CarDTO {
 	private boolean isFavourite;
 	private ProductOwner productOwner;
 	private int km;
-	private ProductImageDTO images;
+	private List<ProductImageDTO> images =  new ArrayList<>();
 
 	public CarDTO() {
 	}
@@ -37,7 +37,7 @@ public class CarDTO {
 		this.price = car.getPrice();
 		this.km = car.getKm();
 		if (car.getImages() != null && !car.getImages().isEmpty()) {
-			this.images = new ProductImageDTO(car.getImages().get(0));
+			this.images.add(new ProductImageDTO(car.getImages().get(0)));
 		}
 		this.productOwner = new ProductOwner(car.getOwner().getId(), car.getOwner().getName(),
 				car.getOwner().getSurname());
@@ -111,15 +111,20 @@ public class CarDTO {
 		this.isFavourite = isFavourite;
 	}
 
-	public List<ProductImage> getImages() {
-		List<ProductImage> list = new ArrayList<ProductImage>();
-		if (images != null)
-			list.add(images.toProduct());
-		return list;
+	public List<ProductImageDTO> getImages() {
+	    return images;
 	}
 
-	public void setImages(ProductImageDTO productImages) {
-		this.images = productImages;
+	public void setImages(List<ProductImageDTO> images) {
+	    this.images = images;
+	}
+	
+	public List<ProductImage> getImagesProduct() {
+	    List<ProductImage> imagesProduct = new ArrayList<>();
+	    for (ProductImageDTO productImageDTO : this.images) {
+	    	imagesProduct.add(productImageDTO.toProduct());
+	    }
+	    return imagesProduct;
 	}
 
 	public Car toCar() {
@@ -130,7 +135,7 @@ public class CarDTO {
 		car.setState(this.getState());
 		car.setPrice(this.getPrice());
 		car.setKm(this.km);
-		car.setImages(this.getImages());
+		car.setImages(this.getImagesProduct());
 		return car;
 	}
 

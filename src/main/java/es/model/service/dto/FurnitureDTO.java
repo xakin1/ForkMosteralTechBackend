@@ -18,7 +18,7 @@ public class FurnitureDTO {
 	private Double price;
 	private boolean isFavourite;
 	private ProductOwner productOwner;
-	private ProductImageDTO images;
+	private List<ProductImageDTO> images =  new ArrayList<>();
 
 	public FurnitureDTO() {
 	}
@@ -35,7 +35,7 @@ public class FurnitureDTO {
 		this.state = furniture.getState();
 		this.price = furniture.getPrice();
 		if (furniture.getImages() != null && !furniture.getImages().isEmpty()) {
-			this.images = new ProductImageDTO(furniture.getImages().get(0));
+			this.images.add(new ProductImageDTO(furniture.getImages().get(0)));
 		}
 		this.productOwner = new ProductOwner(furniture.getOwner().getId(), furniture.getOwner().getName(),
 				furniture.getOwner().getSurname());
@@ -97,15 +97,20 @@ public class FurnitureDTO {
 		this.isFavourite = isFavourite;
 	}
 
-	public List<ProductImage> getImages() {
-		List<ProductImage> list = new ArrayList<ProductImage>();
-		if (images != null)
-			list.add(images.toProduct());
-		return list;
+	public List<ProductImageDTO> getImages() {
+	    return images;
 	}
 
-	public void setImages(ProductImageDTO productImages) {
-		this.images = productImages;
+	public void setImages(List<ProductImageDTO> images) {
+	    this.images = images;
+	}
+	
+	public List<ProductImage> getImagesProduct() {
+	    List<ProductImage> imagesProduct = new ArrayList<>();
+	    for (ProductImageDTO productImageDTO : this.images) {
+	    	imagesProduct.add(productImageDTO.toProduct());
+	    }
+	    return imagesProduct;
 	}
 
 	public Furniture toFurniture() {
@@ -115,7 +120,7 @@ public class FurnitureDTO {
 		furniture.setDescription(this.getDescription());
 		furniture.setState(this.getState());
 		furniture.setPrice(this.getPrice());
-		furniture.setImages(this.getImages());
+		furniture.setImages(this.getImagesProduct());
 
 		return furniture;
 	}

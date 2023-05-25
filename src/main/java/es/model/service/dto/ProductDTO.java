@@ -3,11 +3,14 @@ package es.model.service.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import es.model.domain.Product;
 import es.model.domain.ProductImage;
 import es.model.domain.State;
 import es.model.repository.ProductRepository.ProductProjection;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductDTO {
 
 	private Long id;
@@ -15,7 +18,7 @@ public class ProductDTO {
 	private String description;
 	private Double price;
 	private ProductOwner productOwner;
-	private ProductImageDTO images;
+	private List<ProductImageDTO> images =  new ArrayList<>();
 	private State state;
 	private boolean isFavourite;
 
@@ -35,7 +38,7 @@ public class ProductDTO {
 		this.state = product.getState();
 		this.price = product.getPrice();
 		if (product.getImages() != null && !product.getImages().isEmpty()) {
-			this.images = new ProductImageDTO(product.getImages().get(0));
+			this.images.add(new ProductImageDTO(product.getImages().get(0)));
 		}
 		if (product.getOwner() != null)
 			this.productOwner = new ProductOwner(product.getOwner().getId(), product.getOwner().getName(),
@@ -103,14 +106,20 @@ public class ProductDTO {
 		this.productOwner = productOwner;
 	}
 
-	public List<ProductImage> getImages() {
-		List<ProductImage> list = new ArrayList<ProductImage>();
-		if(images != null) list.add(images.toProduct());
-		return list;
+	public List<ProductImageDTO> getImages() {
+	    return images;
 	}
 
-	public void setImages(ProductImageDTO productImages) {
-		this.images = productImages;
+	public void setImages(List<ProductImageDTO> images) {
+	    this.images = images;
+	}
+	
+	public List<ProductImage> getImagesProduct() {
+	    List<ProductImage> imagesProduct = new ArrayList<>();
+	    for (ProductImageDTO productImageDTO : this.images) {
+	    	imagesProduct.add(productImageDTO.toProduct());
+	    }
+	    return imagesProduct;
 	}
 
 	public Product toProduct() {
@@ -120,7 +129,7 @@ public class ProductDTO {
 		product.setDescription(this.getDescription());
 		product.setState(this.getState());
 		product.setPrice(this.getPrice());
-		product.setImages(this.getImages());
+		product.setImages(getImagesProduct());
 		return product;
 	}
 }

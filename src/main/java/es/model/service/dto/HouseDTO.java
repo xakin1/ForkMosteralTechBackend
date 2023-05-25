@@ -19,7 +19,7 @@ public class HouseDTO {
 	private Double price;
 	private boolean isFavourite;
 	private ProductOwner productOwner;
-	private ProductImageDTO images;
+	private List<ProductImageDTO> images =  new ArrayList<>();
 
 	public HouseDTO() {
 	}
@@ -37,7 +37,7 @@ public class HouseDTO {
 		this.price = house.getPrice();
 		this.m2 = house.getM2();
 		if (house.getImages() != null && !house.getImages().isEmpty()) {
-			this.images = new ProductImageDTO(house.getImages().get(0));
+			this.images.add(new ProductImageDTO(house.getImages().get(0)));
 		}
 		this.productOwner = new ProductOwner(house.getOwner().getId(), house.getOwner().getName(),
 				house.getOwner().getSurname());
@@ -111,14 +111,20 @@ public class HouseDTO {
 		this.isFavourite = isFavourite;
 	}
 
-	public List<ProductImage> getImages() {
-		List<ProductImage> list = new ArrayList<ProductImage>();
-		if(images != null) list.add(images.toProduct());
-		return list;
+	public List<ProductImageDTO> getImages() {
+	    return images;
 	}
 
-	public void setImages(ProductImageDTO productImages) {
-		this.images = productImages;
+	public void setImages(List<ProductImageDTO> images) {
+	    this.images = images;
+	}
+	
+	public List<ProductImage> getImagesProduct() {
+	    List<ProductImage> imagesProduct = new ArrayList<>();
+	    for (ProductImageDTO productImageDTO : this.images) {
+	    	imagesProduct.add(productImageDTO.toProduct());
+	    }
+	    return imagesProduct;
 	}
 	
 	public House toHouse() {
@@ -128,7 +134,7 @@ public class HouseDTO {
 		house.setDescription(this.getDescription());
 		house.setState(this.getState());
 		house.setPrice(this.getPrice());
-		house.setImages(this.getImages());
+		house.setImages(this.getImagesProduct());
 		house.setM2(this.getM2());
 		return house;
 	}
