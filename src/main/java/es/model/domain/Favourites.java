@@ -30,6 +30,7 @@ public class Favourites {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "appuser")
+  @OnDelete(action = OnDeleteAction.CASCADE)
   private AppUser appuser;
 
   public Favourites() {}

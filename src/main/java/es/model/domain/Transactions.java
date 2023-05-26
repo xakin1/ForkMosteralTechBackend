@@ -41,10 +41,12 @@ public class Transactions {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "seller")
+  @OnDelete(action = OnDeleteAction.CASCADE)
   private AppUser seller;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "buyer")
+  @OnDelete(action = OnDeleteAction.CASCADE)
   private AppUser buyer;
 
   @Column(name = "location")
