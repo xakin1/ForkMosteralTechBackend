@@ -39,4 +39,7 @@ public interface TransactionsService {
 
   Page<TransactionsFullDTO> getAllTransactions(String userId, int page, int size)
       throws NotFoundException;
+
+Page<TransactionsFullDTO> getTransactionsAllTransactionByUser(String userId, int page, int size)
+		throws NotFoundException;
 }

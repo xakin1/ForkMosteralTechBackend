@@ -86,7 +86,7 @@ public class TransactionsResource {
       @RequestParam(defaultValue = "10") int size) {
     try {
       Page<TransactionsFullDTO> transactions =
-          transactionsService.getTransactionsBySeller(userId, page, size);
+          transactionsService.getTransactionsAllTransactionByUser(userId, page, size);
       return new ResponseEntity<>(transactions, HttpStatus.OK);
     } catch (NotFoundException e) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -108,6 +108,18 @@ public class TransactionsServiceImpl implements TransactionsService {
     return transactions.map(TransactionsFullDTO::new);
   }
 
+  
+  @Override
+  public Page<TransactionsFullDTO> getTransactionsAllTransactionByUser(String userId, int page, int size)
+      throws NotFoundException {
+    Pageable pageable = PageRequest.of(page, size);
+    Page<Transactions> transactions = findByIdUser(userId, pageable);
+    if (transactions.isEmpty()) {
+      throw new NotFoundException(
+          "No se encontraron transacciones para el vendedor con ID " + userId);
+    }
+    return transactions.map(TransactionsFullDTO::new);
+  }
   @Override
   public Page<TransactionsFullDTO> getAllTransactions(String userId, int page, int size)
       throws NotFoundException {
@@ -159,8 +171,8 @@ public class TransactionsServiceImpl implements TransactionsService {
     return transactionsRepository.findBySellerId(userId, pageable);
   }
 
-  private Page<Transactions> findById(String userId, Pageable pageable) throws NotFoundException {
-    return transactionsRepository.findById(userId, pageable);
+  private Page<Transactions> findByIdUser(String userId, Pageable pageable) throws NotFoundException {
+    return transactionsRepository.findByIdUser(userId, pageable);
   }
 
   private Page<Transactions> findByBuyer(String userId, Pageable pageable)
