@@ -28,6 +28,7 @@ public class ProductFullDTO {
 		this.location = product.getLocation();
 		this.description = product.getDescription();
 		this.state = product.getState();
+		
 		if (product.getImages() != null && !product.getImages().isEmpty()) {
 			for (ProductImage productImage : product.getImages()) {
 				this.images.add(new ProductImageDTO(productImage));
