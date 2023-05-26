@@ -19,7 +19,7 @@ public interface ProductRepository
 
   Page<Product> findByIdIn(List<Long> pk, Pageable pageable);
 
-  @Query("SELECT t FROM t_product t WHERE t.owner.id = :userId")
+  @Query("SELECT t FROM t_product t WHERE t.owner = :userId")
   Page<Product> findByUserId(@Param("userId") String userId, Pageable pageable);
 
   @Query(
