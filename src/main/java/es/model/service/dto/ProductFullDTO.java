@@ -1,5 +1,6 @@
 package es.model.service.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import es.model.domain.Product;
@@ -13,7 +14,7 @@ public class ProductFullDTO {
 	private String location;
 
 	private String description;
-	private List<ProductImage> productImages;
+	private List<ProductImageDTO> images =  new ArrayList<>();
 	private State state;
 	private UserDTO owner;
 	private Double price;
@@ -27,9 +28,11 @@ public class ProductFullDTO {
 		this.location = product.getLocation();
 		this.description = product.getDescription();
 		this.state = product.getState();
-		this.productImages = product.getImages();
-		if (product.getOwner() != null) {
-			this.owner = new UserDTO(product.getOwner());
+		if (product.getImages() != null && !product.getImages().isEmpty()) {
+			for (ProductImage productImage : product.getImages()) {
+				this.images.add(new ProductImageDTO(productImage));
+
+			}
 		}
 		this.price = product.getPrice();
 	}
@@ -90,12 +93,20 @@ public class ProductFullDTO {
 		this.price = price;
 	}
 
-	public List<ProductImage> getProductImages() {
-		return productImages;
+	public List<ProductImageDTO> getImages() {
+	    return images;
 	}
 
-	public void setProductImages(List<ProductImage> productImages) {
-		this.productImages = productImages;
+	public void setImages(List<ProductImageDTO> images) {
+	    this.images = images;
+	}
+	
+	public List<ProductImage> getImagesProduct() {
+	    List<ProductImage> imagesProduct = new ArrayList<>();
+	    for (ProductImageDTO productImageDTO : this.images) {
+	    	imagesProduct.add(productImageDTO.toProduct());
+	    }
+	    return imagesProduct;
 	}
 
 	public Product toProduct() {
@@ -105,7 +116,7 @@ public class ProductFullDTO {
 		product.setLocation(this.getLocation());
 		product.setDescription(this.getDescription());
 		product.setState(this.getState());
-		product.setImages(this.getProductImages());
+		product.setImages(getImagesProduct());
 		if (this.getOwner() != null) {
 			product.setOwner(this.getOwner().toUser());
 		}
