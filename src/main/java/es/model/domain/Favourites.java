@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity(name = "t_favourites")
 @Table(name = "t_favourites")
 public class Favourites {
@@ -26,10 +29,12 @@ public class Favourites {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "product")
+  @OnDelete(action = OnDeleteAction.CASCADE)
   private Product product;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "appuser")
+  @OnDelete(action = OnDeleteAction.CASCADE)
   private AppUser appuser;
 
   public Favourites() {}

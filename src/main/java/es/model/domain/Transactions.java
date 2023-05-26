@@ -16,6 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity(name = "t_transactions")
 @Table(name = "t_transactions")
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -37,14 +40,17 @@ public class Transactions {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "product")
+  @OnDelete(action = OnDeleteAction.NO_ACTION)
   private Product product;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "seller")
+  @OnDelete(action = OnDeleteAction.NO_ACTION)
   private AppUser seller;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "buyer")
+  @OnDelete(action = OnDeleteAction.NO_ACTION)
   private AppUser buyer;
 
   @Column(name = "location")
