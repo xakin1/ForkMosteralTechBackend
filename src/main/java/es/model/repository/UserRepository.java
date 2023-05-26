@@ -11,13 +11,11 @@ import java.util.Optional;
 import es.model.domain.AppUser;
 
 public interface UserRepository
-    extends JpaRepository<AppUser, Long>, JpaSpecificationExecutor<AppUser> {
+    extends JpaRepository<AppUser, String>, JpaSpecificationExecutor<AppUser> {
 
   Optional<AppUser> findById(String pk);
 
-  void deleteById(String id);
-  
   Optional<AppUser> findByFirebaseToken(String token);
 
-  Page<AppUser> findByIdIn(List<Long> pk, Pageable pageable);
+  Page<AppUser> findByIdIn(List<String> pk, Pageable pageable);
 }

@@ -94,7 +94,7 @@ public class ProductResource {
     }
   }
 
-  @GetMapping("all/{userId}")
+  @GetMapping("/all/{userId}")
   public ResponseEntity<Page<ProductFullDTO>> getByUserId(
       @PathVariable String userId,
       @RequestParam(defaultValue = "0") int page,
